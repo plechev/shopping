@@ -34,5 +34,4 @@ class CartSpec extends FlatSpec with Matchers {
     assert(total == expected, "< - Confirm Cart totals for Oranges offer")
   }
 
-
 }
