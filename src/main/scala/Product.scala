@@ -4,8 +4,8 @@
   */
 object Products {
   val products: Map[String, Double] = Map(
-    "Apple" -> 5.0,
-    "Orange" -> 6.0
+    "Apple" -> 0.60,
+    "Orange" -> 0.25
   )
 }
 
