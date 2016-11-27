@@ -26,12 +26,13 @@ class CartSpec extends FlatSpec with Matchers {
   }
 
   it should """add offer "3 for the price of 2 on Oranges"""" in {
-    val items = Seq("Orange", "Orange", "Orange")
+    val items = Seq("Orange", "Orange", "Orange", "Orange")
     val cart = new Cart()
     val total = cart.getTotalCost(items)
-    val expected = Products.products("Orange") * 3 * 2 / 3
-    assert(expected == 0.5, "<- confirm expected cost")
+    val expected = Products.products("Orange") * 3 * 2 / 3 + Products.products("Orange")
+    assert(expected == 0.75, "<- confirm expected cost")
     assert(total == expected, "< - Confirm Cart totals for Oranges offer")
   }
+
 
 }

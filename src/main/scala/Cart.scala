@@ -16,7 +16,12 @@ class Cart {
     var orangesTotal = 0.0
     if (grouped.isDefinedAt("Orange")) {
       val allOranges = grouped("Orange").size
-      orangesTotal = allOranges * Products.products("Orange")
+      val orangePrice = Products.products("Orange")
+      orangesTotal = (if (allOranges > 3) {
+        allOranges % 3 * orangePrice
+      } else {
+        0
+      }) + (allOranges / 3 * 2 * orangePrice)
     }
 
     applesTotal + orangesTotal
