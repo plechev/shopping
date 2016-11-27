@@ -34,4 +34,13 @@ class CartSpec extends FlatSpec with Matchers {
     assert(total == expected, "< - Confirm Cart totals for Oranges offer")
   }
 
+  it should """ Calculate totals when Apples not falling in offer """ in {
+    val items = Seq("Apple", "Orange", "Orange", "Orange")
+    val cart = new Cart()
+    val total = cart.getTotalCost(items)
+    val expected = Products.products("Apple") + Products.products("Orange") * 2 // only pay for 2 oranges
+    assert(expected == 1.1, "<- confirm expected cost")
+    assert(total == expected, "< - Confirm Cart totals")
+  }
+
 }
