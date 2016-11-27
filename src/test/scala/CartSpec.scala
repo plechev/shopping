@@ -8,7 +8,7 @@ class CartSpec extends FlatSpec with Matchers {
 
 
   "Cart" should "take a list of items scanned at the till and outputs the total cost" in {
-    val items = Seq("")
+    val items = Seq("Apple", "Orange")
     val cart = new Cart()
     val total = cart.getTotalCost(items)
     assert(total == 15)

@@ -4,6 +4,8 @@
   */
 class Cart {
 
-  def getTotalCost(items: Seq[String]) = 15
+  def getTotalCost(items: Seq[String]): Double = {
+    items.foldRight(0.0)((i, t) => t + Products.products(i))
+  }
 
 }
