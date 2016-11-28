@@ -1,10 +1,10 @@
-import org.scalatest.{FlatSpec, Matchers}
+import org.scalatest.FlatSpec
 
 /**
   * @author Pavel Lechev <p.lechev@gmail.com>
   * @since 27/11/2016
   */
-class CartSpec extends FlatSpec with Matchers {
+class CartSpec extends FlatSpec {
 
 
   "Cart" should "take a list of items scanned at the till and outputs the total cost" in {
@@ -52,4 +52,10 @@ class CartSpec extends FlatSpec with Matchers {
     assert(total == expected, "< - Confirm Cart totals")
   }
 
+  it should """ Calculate totals and return 0 when nothing is selected""" in {
+    val items = Seq()
+    val cart = new Cart()
+    val total = cart.getTotalCost(items)
+    assert(total == 0, "< - Confirm Cart totals")
+  }
 }
